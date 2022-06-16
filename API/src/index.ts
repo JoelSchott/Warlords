@@ -3,6 +3,11 @@ import express from 'express';
 const app = express();
 const PORT = 5678;
 
+import { PlayersRouter } from './routes';
+
+PlayersRouter(app);
+
+
 app.all('/*', (req, res) => {
     console.log("API accessed on an unknown route");
     res.status(404).send("This is not the right route for a warlord");
