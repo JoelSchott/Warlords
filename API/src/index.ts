@@ -1,16 +1,20 @@
+require('dotenv').config();
+
 import express from 'express';
+import { json } from 'body-parser';
+
+import { PlayersRouter } from './routes';
 
 const app = express();
 const PORT = 5678;
 
-import { PlayersRouter } from './routes';
+app.use(json());
 
 PlayersRouter(app);
 
-
 app.all('/*', (req, res) => {
     console.log("API accessed on an unknown route");
-    res.status(404).send("This is not the right route for a warlord");
+    res.status(404).send("This is not a valid Warlords API route");
 })
 
 app.listen(PORT, () => {

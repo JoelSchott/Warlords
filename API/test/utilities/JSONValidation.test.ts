@@ -1,4 +1,4 @@
-import { JSONArrayValidator, JSONSchemaValidator } from "../../src/utilities/JSONValidation";
+import { JSONArrayValidator, JSONMatchValidator, JSONSchemaValidator } from "../../src/utilities/JSONValidation";
 
 describe('Testing JSON Validation', () => {
     test('Object with primitives', () => {
@@ -38,4 +38,9 @@ describe('Testing JSON Validation', () => {
         expect(validator.validate(undefined)).toBe(false);
         expect(validator.validate(null)).toBe(false);
     });
+    test("Regex match", () => {
+        const validator = new JSONMatchValidator(new RegExp("abc.*"));
+        expect(validator.validate("abcd")).toBe(true);
+        expect(validator.validate("acd")).toBe(false);
+    })
 });

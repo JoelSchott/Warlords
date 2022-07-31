@@ -1,3 +1,5 @@
 API/build/
 API/node_modules/
+API/.env
+API/coverage/
 notes.txt

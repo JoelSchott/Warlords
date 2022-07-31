@@ -2,16 +2,18 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Warlords API",
-  "main": "build/index.js",
+  "main": "build/src/index.js",
   "scripts": {
-    "serve": "concurrently \"tsc --watch\" \"nodemon -q build/index.js\"",
+    "serve": "concurrently \"tsc --watch\" \"nodemon -q build/src/index.js\"",
     "start": "npm run serve",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "Joel Schott",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mariadb": "^3.0.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
